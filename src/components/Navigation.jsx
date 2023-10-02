@@ -23,7 +23,12 @@ const Navigation = () => {
           <Link className='items me-3' to="/">Inicio</Link>
           <Link className='items me-3' to="/cursos">Cursos</Link>
           {
-            isLogged ? (<Link className='items me-3' onClick={logOut}>Cerrar Sesión</Link>) : (
+            isLogged ? (
+              <>
+              <Link className='items me-3' to="/admin">Admin</Link>
+                <button className='items me-3' onClick={logOut}>Cerrar Sesión</button>
+              </>
+            ) : (
                     <>
                     <Link className='items me-3' to='/login'>Iniciar Sesión</Link>
                     <Link className='items me-3' to='/registro'>Registro</Link>

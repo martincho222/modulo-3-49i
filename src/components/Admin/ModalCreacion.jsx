@@ -5,11 +5,12 @@ import FormCreacion from './FormCreacion';
 
 const ModalCreacion = ({show, handleClose}) => {
 
+
   return (
     <>
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Modal heading</Modal.Title>
+          <Modal.Title>Crear un Curso</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <FormCreacion />

@@ -1,23 +1,21 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { axiosInstance } from "../config/axiosInstance";
 import { useNavigate } from "react-router-dom";
+import { GlobalContext } from "../context/GlobalContext";
+import { loginUser } from "../context/GlobalActions";
 
 
 
 const Login = () => {
   const { register, handleSubmit, formState: {errors}, reset } = useForm();
+  const {state, dispatch} = useContext(GlobalContext);
+
   const navigate = useNavigate()
 
   const onSubmit = async (data) => {
     console.log(data);
-    try {
-      const response = await axiosInstance.post("/user/login", data)
-      localStorage.setItem("token", response.data.token);
-      navigate("/admin")
-    } catch (error) {
-      console.log(error);
-    }
+    dispatch(loginUser(data, navigate))
   }
 
   return (

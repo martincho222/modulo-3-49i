@@ -1,0 +1,1 @@
+export const GET_CURSOS = "GET_CURSOS";
